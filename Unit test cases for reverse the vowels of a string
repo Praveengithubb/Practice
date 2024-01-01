@@ -1,0 +1,77 @@
+package com.qspider.test;
+
+public class Reversevowels {
+public static String check(String s)
+{
+	String vowel="aeiouAEIOU";
+	StringBuilder copy=new StringBuilder(s);
+	int l=0;
+	int r=s.length()-1;
+	while(l<r)
+	{
+		if(vowel.indexOf(s.charAt(l))==-1)
+		{
+			l++;
+		}
+		else if(vowel.indexOf(s.charAt(r))==-1)
+		{
+			r--;
+		}
+		else
+		{
+			char co=s.charAt(l);
+			copy.setCharAt(l, s.charAt(r));
+			copy.setCharAt(r, co);
+			l++;
+			r--;
+		}
+		
+	}
+	return copy.toString();
+	
+}
+}
+
+
+package com.qspider.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Testinggg {
+
+	@Test
+	public void test() {
+		String s="Hello";
+		Reversevowels r=new Reversevowels();
+		String get=r.check(s);
+		assertEquals("Holle", get);
+			}
+	@Test
+	public void test1()
+	{
+		String s="Education";
+		Reversevowels r=new Reversevowels();
+		String get=r.check(s);
+		
+		assertEquals("odicatuEn", get);
+	}
+	@Test
+	public void test2()
+	{
+		String s="pqrst";
+		Reversevowels r=new Reversevowels();
+		String get=r.check(s);
+		
+		assertEquals("pqrst", get);
+	}
+	@Test
+	public void test3()
+	{
+		String s="Leetcode";
+		Reversevowels r=new Reversevowels();
+		String get=r.check(s);
+		assertEquals("Leotcede", get);
+	}
+}
