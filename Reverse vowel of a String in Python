@@ -1,0 +1,20 @@
+s="leetcode"
+word=list(s)
+vowel="aeiouAEIOU"
+l=0;
+r=len(s)-1;
+while l<r:
+    if vowel.find(s[l])==-1:
+        l+=1;
+    else:
+        if vowel.find(s[r])==-1:
+            r-=1;
+        else:  
+            word[l],word[r]=word[r],word[l]
+            l+=1;
+            r-=1;
+    
+result=' '.join(word)
+print(result)
+        
+          
