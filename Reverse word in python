@@ -1,0 +1,5 @@
+s="Hello    world  "
+splited=" ".join(s.split())
+print(splited)
+reversed_words = " ".join(reversed(splited.split()))
+print(reversed_words)
