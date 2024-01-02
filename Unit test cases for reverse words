@@ -1,0 +1,59 @@
+package com.qspider.test;
+
+public class reversewords {
+public static String check(String s)
+{
+	 s=s.trim().replaceAll("\\s+"," ");
+     String[] splited=s.split(" ");
+     StringBuilder reversed=new StringBuilder();
+     for(int i=splited.length-1;i>=0;i--)
+     {
+         reversed.append(splited[i]).append(" ");
+     }
+     return reversed.toString().trim();
+	
+}
+}
+
+
+package com.qspider.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Testinggg {
+
+	@Test
+	public void test() {
+		String s="  Hello        world   ";
+		reversewords r=new reversewords();
+		String get=r.check(s);
+		System.out.println(get);
+		assertEquals("world Hello", get);
+			}
+	@Test
+	public void test1()
+	{
+		String s="a good     example";
+		reversewords r=new reversewords();
+		String get=r.check(s);
+		assertEquals("example good a", get);
+	}
+	@Test
+	public void test2()
+	{
+		String s="the sky   ";
+		reversewords r=new reversewords();
+		String get=r.check(s);
+		assertEquals("sky the", get);
+	}
+	@Test
+	public void test3()
+	{
+		String s="  Leetcode";
+		reversewords r=new reversewords();
+		String get=r.check(s);
+		assertEquals("Leetcode", get);
+	}
+}
