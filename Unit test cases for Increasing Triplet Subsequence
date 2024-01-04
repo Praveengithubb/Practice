@@ -1,0 +1,59 @@
+package com.qspider.test;
+
+public class findTriplet {
+	public static boolean find(int[] nums) {
+		if (nums == null || nums.length < 3) {
+			return false;
+		}
+		int a = Integer.MAX_VALUE;
+		int b = Integer.MAX_VALUE;
+		for (int num : nums) {
+			if (num <= a) {
+				a = num;
+			} else if (num <= b) {
+				b = num;
+			} else {
+				return true;
+			}
+		}
+		return false;
+	}
+}
+
+package com.qspider.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Testinggg {
+
+	@Test
+	public void test() {
+		int[] nums = { 1, 2, 3 };
+		findTriplet f = new findTriplet();
+		boolean res = f.find(nums);
+		assertEquals(true, res);
+	}
+	@Test
+	public void test1() {
+		int[] nums = { 1, 2 };
+		findTriplet f = new findTriplet();
+		boolean res = f.find(nums);
+		assertEquals(false, res);
+	}
+	@Test
+	public void test2() {
+		int[] nums = { 1, 2, 0,1 };
+		findTriplet f = new findTriplet();
+		boolean res = f.find(nums);
+		assertEquals(false, res);
+	}
+	@Test
+	public void test3() {
+		int[] nums = {5,4,3};
+		findTriplet f = new findTriplet();
+		boolean res = f.find(nums);
+		assertEquals(false, res);
+	}
+}
