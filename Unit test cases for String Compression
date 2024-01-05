@@ -1,0 +1,58 @@
+package com.qspider.test;
+
+public class StringCompression {
+	public static int find(char[] c) {
+		int count = 1;
+		int i = 0;
+		for (int j = 1; j <= c.length; j++) {
+			if (j == c.length || c[j - 1] != c[j]) {
+				c[i] = c[j - 1];
+				i++;
+				if (count >= 2) {
+					char[] countarray = Integer.toString(count).toCharArray();
+					for (int a = 0; a < countarray.length; a++) {
+						c[i] = countarray[a];
+						i++;
+						count=1;
+					}
+				}
+			} else {
+				count++;
+			}
+		}
+		return i;
+	}
+}
+
+
+package com.qspider.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class Testinggg {
+
+	@Test
+	public void test() {
+		char[] c = { 'a','a','b','b','c','c','c'};
+		StringCompression str=new StringCompression();
+		int i=str.find(c);
+		assertEquals(6, i);
+	}
+	@Test
+	public void test1() {
+		char[] c = { 'a'};
+		StringCompression str=new StringCompression();
+		int i=str.find(c);
+		assertEquals(1, i);
+	}
+	@Test
+	public void test2() {
+		char[] c = { 'a','b','b','b','b','b','b','b','b','b','b'};
+		StringCompression str=new StringCompression();
+		int i=str.find(c);
+		assertEquals(4, i);
+	}
+	}
+
